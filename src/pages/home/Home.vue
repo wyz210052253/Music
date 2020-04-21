@@ -3,6 +3,8 @@
         <home-header></home-header>
         <home-banner></home-banner>
         <home-icons></home-icons>
+        <home-recommend></home-recommend>
+        <home-re-style></home-re-style>
     </div>
 </template>
 
@@ -10,12 +12,16 @@
 import HomeHeader from './components/Header'
 import HomeBanner from './components/Banner'
 import HomeIcons from './components/Icons'
+import HomeRecommend from './components/Recommend'
+import HomeReStyle from './components/ReStyle'
 export default {
   name: 'Home',
   components: {
     HomeHeader,
     HomeBanner,
-    HomeIcons
+    HomeIcons,
+    HomeRecommend,
+    HomeReStyle
   }
 }
 </script>
