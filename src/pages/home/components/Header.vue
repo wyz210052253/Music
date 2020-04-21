@@ -25,10 +25,10 @@ export default {
 
 <style lang="stylus" scoped>
   .header
-    color: #fff
+    color: #333
     height: .8rem
     line-height: .8rem
-    background: red
+    background: #fff
     display: flex
     .header-left
       width: .64rem
