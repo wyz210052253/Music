@@ -1,21 +1,24 @@
 <template>
-    <div class="restyle">
+    <div class="player">
         <div class="title">
-            <div class="title-info">风格推荐</div>
+            <div class="title-info">大家都在听</div>
             <div class="title-btn border">
-                <span class="iconfont player">&#xe62b;</span>
+                <span class="iconfont player-btn">&#xe62b;</span>
                 播放全部
             </div>
         </div>
         <ul class="item">
             <li class="item-list" v-for="item of list" :key="item.id">
               <div class="item-wrapper">
-                <img class="item-img" :src="item.Imgurl" />
+                <img class="item-img" :src="item.imgUrl" />
               </div>
               <div class="item-info">
                 <div class="left">
                   <div class="item-info-title">{{item.title}}</div>
-                  <span :class="Styles(item.judeg)">{{item.desc}}</span>
+                  <div class="item-info-desc">
+                    <span class="item-desc-left">SQ</span>
+                    <span class="item-desc-right">{{item.desc}}</span>
+                  </div>
                 </div>
                 <div class="item-player border">
                   <span class="iconfont">&#xe62b;</span>
@@ -28,48 +31,41 @@
 
 <script>
 export default {
-  name: 'HomeReStyle',
+  name: 'HomePlayer',
   data () {
     return {
       list: [{
         id: '0001',
-        Imgurl: 'http://p2.music.126.net/9raCbkcdTiXiOcToKh1XRQ==/109951164515936501.jpg?param=140y140',
-        title: 'Rags To Rings - Danny Mc Carthy',
-        desc: '超23%人收藏',
-        judeg: true
+        imgUrl: 'https://p2.music.126.net/lfPqx_s4l_fFjnIxRo15bw==/109951164922323980.jpg?param=130y130',
+        title: '不仅仅是喜欢 - 萧全/孙武赛',
+        desc: '最棒的鼓点女声抒情男声rap'
       }, {
         id: '0002',
-        Imgurl: 'http://p3.music.126.net/6nuFSMK3UMG5nLsreYX1Vg==/109951164862495860.jpg?param=100y100',
-        title: 'Uptown Funk -Mark Ronson',
-        desc: '守望先锋好莱坞推车必备',
-        judeg: false
+        imgUrl: 'https://p2.music.126.net/M4WngqgicMFczcAPEtn5bg==/109951164925354428.jpg?param=130y130',
+        title: '不仅仅是喜欢 - 萧全/孙武赛',
+        desc: '最棒的鼓点女声抒情男声rap'
       }, {
         id: '0003',
-        Imgurl: 'http://p4.music.126.net/bZxfyuY58soD71VGxv6BDQ==/109951164814715844.jpg?param=100y100',
-        title: 'Heist - Noisestorm',
-        desc: '绝地求生精彩集锦必备BGM',
-        judeg: false
+        imgUrl: 'https://p2.music.126.net/CQ4WbLHmI-VBeEHz3FjkmA==/109951164926807213.jpg?param=130y130',
+        title: '不仅仅是喜欢 - 萧全/孙武赛',
+        desc: '最棒的鼓点女声抒情男声rap'
       }]
-    }
-  },
-  methods: {
-    Styles (judeg) {
-      return judeg ? 'item-info-desc' : 'item-info-desc-two'
     }
   }
 }
 </script>
 
 <style lang="stylus" scoped>
-  .restyle >>> .border::before
+  .player >>> .border::before
     border-color: #ccc
     border-radius:  1rem
-  .restyle
-    margin-top: .5rem
+  .player
     width: 100%
     height: 0
+    overflow: hidden
     padding-bottom: 70%
     background: #fff
+    margin-top: .4rem
     .title
       width: 100%
       height: .6rem
@@ -110,7 +106,7 @@ export default {
           .item-img
             width: 100%
             border-radius: .2rem
-        .item-info
+      .item-info
           float: left
           margin-left: .2rem
           height: 1.3rem
@@ -122,12 +118,14 @@ export default {
               line-height: .5rem
             .item-info-desc
               line-height: .8rem
-              color: red
-              background: rgba(198,47,47,0.3)
-              padding: 0.1rem
-              border-radius: .1rem
-            .item-info-desc-two
-              line-height: .8rem
+              .item-desc-left
+                color: red
+                font-size: .2rem
+                border: 0.01rem solid red
+                padding: 0.01rem
+              .item-desc-right
+                color: rgba(0,0,0,0.5)
+                font-size: .30rem
           .item-player
             width: .5rem
             height: .5rem
