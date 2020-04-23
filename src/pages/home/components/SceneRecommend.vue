@@ -26,37 +26,8 @@
 <script>
 export default {
   name: 'HomeScene',
-  data () {
-    return {
-      list: [{
-        id: '0001',
-        url: 'http://p1.music.126.net/SYg7p-PoEhrJ_d0LhGH9hQ==/109951164385837895.jpg?param=140y140',
-        desc: '学习工作必备纯音乐',
-        play: '2269万',
-        text: '聚集会神'
-      },
-      {
-        id: '0002',
-        url: 'http://p1.music.126.net/XRoP8DovIG4Qdt5KJiKo2A==/109951164787065045.jpg?param=140y140',
-        desc: '最懂你的华语推荐每日更新35首',
-        play: '2.6亿',
-        text: '华人私人定制'
-      },
-      {
-        id: '0003',
-        url: 'http://p1.music.126.net/B2AmH-g6oJTnetQe2SfiuQ==/109951164749543244.jpg?param=140y140',
-        desc: '打开你学生时代的MP3播放列表',
-        play: '1345万',
-        text: '青春点唱机'
-      },
-      {
-        id: '0004',
-        url: 'http://p2.music.126.net/ipDaITvu_vVvHJqxaujLUQ==/109951164441184008.jpg?param=140y140',
-        desc: '经典老歌，带你重回1990年代',
-        play: '1111万',
-        text: '时光点唱机'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>

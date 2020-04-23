@@ -32,25 +32,8 @@
 <script>
 export default {
   name: 'HomePlayer',
-  data () {
-    return {
-      list: [{
-        id: '0001',
-        imgUrl: 'https://p2.music.126.net/lfPqx_s4l_fFjnIxRo15bw==/109951164922323980.jpg?param=130y130',
-        title: '不仅仅是喜欢 - 萧全/孙武赛',
-        desc: '最棒的鼓点女声抒情男声rap'
-      }, {
-        id: '0002',
-        imgUrl: 'https://p2.music.126.net/M4WngqgicMFczcAPEtn5bg==/109951164925354428.jpg?param=130y130',
-        title: '不仅仅是喜欢 - 萧全/孙武赛',
-        desc: '最棒的鼓点女声抒情男声rap'
-      }, {
-        id: '0003',
-        imgUrl: 'https://p2.music.126.net/CQ4WbLHmI-VBeEHz3FjkmA==/109951164926807213.jpg?param=130y130',
-        title: '不仅仅是喜欢 - 萧全/孙武赛',
-        desc: '最棒的鼓点女声抒情男声rap'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>

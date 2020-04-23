@@ -1,15 +1,15 @@
 <template>
     <div>
         <home-header></home-header>
-        <home-banner></home-banner>
+        <home-banner :list="bannerList"></home-banner>
         <home-icons></home-icons>
-        <home-recommend></home-recommend>
-        <home-re-style></home-re-style>
-        <home-scene></home-scene>
-        <home-new-song></home-new-song>
-        <home-player></home-player>
-        <home-ranking></home-ranking>
-        <home-broadcast></home-broadcast>
+        <home-recommend :list="recommendList"></home-recommend>
+        <home-re-style :list="restyleList"></home-re-style>
+        <home-scene :list="sceneList"></home-scene>
+        <home-new-song :list="songList"></home-new-song>
+        <home-player :list="playerList"></home-player>
+        <home-ranking :list="rankingList"></home-ranking>
+        <home-broadcast :list="broadcastList"></home-broadcast>
     </div>
 </template>
 
@@ -24,6 +24,7 @@ import HomeNewSong from './components/NewSong'
 import HomePlayer from './components/Player'
 import HomeRanking from './components/Ranking'
 import HomeBroadcast from './components/Broadcast'
+import axios from 'axios'
 export default {
   name: 'Home',
   components: {
@@ -37,6 +38,40 @@ export default {
     HomePlayer,
     HomeRanking,
     HomeBroadcast
+  },
+  data () {
+    return {
+      bannerList: [],
+      recommendList: [],
+      restyleList: [],
+      sceneList: [],
+      songList: [],
+      playerList: [],
+      rankingList: [],
+      broadcastList: []
+    }
+  },
+  methods: {
+    getHomeInfo () {
+      axios.get('/api/home.json').then(this.getHomeInfoSucc)
+    },
+    getHomeInfoSucc (res) {
+      res = res.data
+      if (res.ret && res.data) {
+        const data = res.data
+        this.bannerList = data.BannerList
+        this.recommendList = data.RecommendList
+        this.restyleList = data.reStyle
+        this.sceneList = data.sceneList
+        this.songList = data.songList
+        this.playerList = data.playerList
+        this.rankingList = data.rankingList
+        this.broadcastList = data.broadcastList
+      }
+    }
+  },
+  mounted () {
+    this.getHomeInfo()
   }
 }
 </script>

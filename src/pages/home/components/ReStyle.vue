@@ -29,28 +29,8 @@
 <script>
 export default {
   name: 'HomeReStyle',
-  data () {
-    return {
-      list: [{
-        id: '0001',
-        Imgurl: 'http://p2.music.126.net/9raCbkcdTiXiOcToKh1XRQ==/109951164515936501.jpg?param=140y140',
-        title: 'Rags To Rings - Danny Mc Carthy',
-        desc: '超23%人收藏',
-        judeg: true
-      }, {
-        id: '0002',
-        Imgurl: 'http://p3.music.126.net/6nuFSMK3UMG5nLsreYX1Vg==/109951164862495860.jpg?param=100y100',
-        title: 'Uptown Funk -Mark Ronson',
-        desc: '守望先锋好莱坞推车必备',
-        judeg: false
-      }, {
-        id: '0003',
-        Imgurl: 'http://p4.music.126.net/bZxfyuY58soD71VGxv6BDQ==/109951164814715844.jpg?param=100y100',
-        title: 'Heist - Noisestorm',
-        desc: '绝地求生精彩集锦必备BGM',
-        judeg: false
-      }]
-    }
+  props: {
+    list: Array
   },
   methods: {
     Styles (judeg) {

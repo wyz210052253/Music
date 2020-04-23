@@ -26,25 +26,8 @@
 <script>
 export default {
   name: 'HomeBroadcast',
-  data () {
-    return {
-      list: [{
-        id: '0001',
-        imgUrl: 'http://p2.music.126.net/Y7cveTgV3qbYTwqJ2FNnBw==/109951164526625758.jpg?param=140y140',
-        title: '孤独解药',
-        desc: '一首歌，一晚好梦'
-      }, {
-        id: '0002',
-        imgUrl: 'http://p1.music.126.net/ipDaITvu_vVvHJqxaujLUQ==/109951164441184008.jpg?param=140y140',
-        title: '心是孤独的猎手',
-        desc: '人越是明白，就越是孤独'
-      }, {
-        id: '0003',
-        imgUrl: 'http://p1.music.126.net/nBZdICm9wJOo4tqy8jIfLA==/109951164002262205.jpg?param=140y140',
-        title: '最怕碌碌无为',
-        desc: '陪着你,一起仗剑走天涯'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>

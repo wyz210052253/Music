@@ -28,28 +28,8 @@
 <script>
 export default {
   name: 'HomeRanking',
-  data () {
-    return {
-      list: [{
-        id: '0001',
-        index: '1',
-        imgUrl: 'http://p2.music.126.net/ply41mhg-j0JQR7IvmLWOg==/109951164887544693.jpg?param=50y50&quality=100',
-        title: '喉咙唱的沙哑',
-        author: '- 枯木逢春'
-      }, {
-        id: '0002',
-        index: '2',
-        imgUrl: 'http://p1.music.126.net/CCUe6FkkZJynx09P5Jzjmg==/109951163925137185.jpg?param=140y140',
-        title: '当音乐停止',
-        author: '- 顾忠山/赵可'
-      }, {
-        id: '0003',
-        index: '3',
-        imgUrl: 'http://p2.music.126.net/lBbpT6oJoMK63afjzm8Nyw==/109951164675828957.jpg?param=140y140',
-        title: 'Dawn Echo',
-        author: '- 完美倒立'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>

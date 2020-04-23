@@ -9,7 +9,7 @@
         <div class="wrapper">
             <div class="content" v-for="item of list" :key='item.id'>
                 <div class="content-img">
-                    <img class="item-img" :src="item.url">
+                    <img class="item-img" :src="item.imgUrl">
                     <div class="item-img-play">
                         <span class="iconfont">&#xe769;</span>{{item.play}}
                     </div>
@@ -25,33 +25,8 @@
 <script>
 export default {
   name: 'HomeRecommend',
-  data () {
-    return {
-      list: [{
-        id: '0001',
-        url: 'http://p1.music.126.net/8x-pNz7EmZ9Abgxqg7GkyQ==/109951164922813123.jpg?param=140y140',
-        desc: '[华语速爆新歌] 最新华语音乐推荐',
-        play: '7.9亿'
-      },
-      {
-        id: '0002',
-        url: 'http://p2.music.126.net/fJLmA2YMx-3rpbFeyiTp9Q==/109951164857220634.jpg?imageView=1&type=webp&thumbnail=369x0',
-        desc: '艺术流行 ‖ 领悟音乐的折衷主义',
-        play: '5399万'
-      },
-      {
-        id: '0003',
-        url: 'http://p2.music.126.net/9raCbkcdTiXiOcToKh1XRQ==/109951164515936501.jpg?imageView=1&type=webp&thumbnail=369x0',
-        desc: '循环播放的神仙歌单',
-        play: '1.5亿'
-      },
-      {
-        id: '0004',
-        url: 'http://p2.music.126.net/Le3bvcB8dBLqpsTpnJHwyg==/109951164569849121.jpg?imageView=1&type=webp&thumbnail=369x0',
-        desc: '音乐烘焙店♬售卖人间烟火 烘焙星辰大海',
-        play: '1.3亿'
-      }]
-    }
+  props: {
+    list: Array
   }
 }
 </script>
