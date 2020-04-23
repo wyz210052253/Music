@@ -7,20 +7,24 @@
             </div>
       </div>
       <div class="item">
-        <div class="item-title">硬地原创音乐榜 ></div>
-        <ul class="item-list">
-          <li class="item-list-box" v-for="item of list" :key="item.id">
-            <div class="item-wrapper">
-                <img class="item-img" :src="item.imgUrl" />
-            </div>
-            <div class="item-info">
-              <span class="item-info-ranking">{{item.index}}</span>
-              <span class="item-info-desc">{{item.title}}</span>
-              <span class="item-info-author">{{item.author}}</span>
-              <span class="item-info-index">新</span>
-            </div>
-          </li>
-        </ul>
+        <swiper :options="swiperOptions">
+           <swiper-slide v-for="(page, index) of pages" :key="index">
+              <div class="item-title">硬地原创音乐榜 ></div>
+              <ul class="item-list">
+                <li class="item-list-box" v-for="item of page" :key="item.id">
+                  <div class="item-wrapper">
+                      <img class="item-img" :src="item.imgUrl" />
+                  </div>
+                  <div class="item-info">
+                    <span class="item-info-ranking">{{item.index}}</span>
+                    <span class="item-info-desc">{{item.title}}</span>
+                    <span class="item-info-author">{{item.author}}</span>
+                    <span class="item-info-index">新</span>
+                  </div>
+                </li>
+              </ul>
+          </swiper-slide>
+        </swiper>
       </div>
     </div>
 </template>
@@ -30,6 +34,26 @@ export default {
   name: 'HomeRanking',
   props: {
     list: Array
+  },
+  data () {
+    return {
+      swiperOptions: {
+        autoplay: false
+      }
+    }
+  },
+  computed: {
+    pages () {
+      const pages = []
+      this.list.forEach((item, index) => {
+        const page = Math.floor(index / 3)
+        if (!pages[page]) {
+          pages[page] = []
+        }
+        pages[page].push(item)
+      })
+      return pages
+    }
   }
 }
 </script>

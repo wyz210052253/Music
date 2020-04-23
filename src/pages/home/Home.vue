@@ -10,6 +10,7 @@
         <home-player :list="playerList"></home-player>
         <home-ranking :list="rankingList"></home-ranking>
         <home-broadcast :list="broadcastList"></home-broadcast>
+        <home-play class="footer"></home-play>
     </div>
 </template>
 
@@ -24,6 +25,7 @@ import HomeNewSong from './components/NewSong'
 import HomePlayer from './components/Player'
 import HomeRanking from './components/Ranking'
 import HomeBroadcast from './components/Broadcast'
+import HomePlay from './components/Play'
 import axios from 'axios'
 export default {
   name: 'Home',
@@ -37,7 +39,8 @@ export default {
     HomeNewSong,
     HomePlayer,
     HomeRanking,
-    HomeBroadcast
+    HomeBroadcast,
+    HomePlay
   },
   data () {
     return {
@@ -83,4 +86,10 @@ export default {
     z-index: 10
     width: 100%
     background: #fff
+  .footer
+    position: fixed
+    bottom: 0
+    width: 100%
+    background: #fff
+    z-index: 10
 </style>

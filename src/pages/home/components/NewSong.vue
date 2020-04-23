@@ -7,23 +7,27 @@
             </div>
         </div>
         <ul class="item">
-            <li class="item-list" v-for="item of list" :key="item.id">
-              <div class="item-wrapper">
-                <img class="item-img" :src="item.imgUrl" />
-              </div>
-              <div class="item-info">
-                <div class="left">
-                  <div class="item-info-title">{{item.title}}</div>
-                  <div class="item-info-desc">
-                    <span class="item-desc-left">{{item.descLeft}}</span>
-                    <span class="item-desc-right">{{item.descRight}}</span>
+            <swiper :options="swiperOptions">
+              <swiper-slide v-for="(page, index) of pages" :key="index">
+                <li class="item-list" v-for="item of page" :key="item.id">
+                  <div class="item-wrapper">
+                    <img class="item-img" :src="item.imgUrl" />
                   </div>
-                </div>
-                <div class="item-player border">
-                  <span class="iconfont">&#xe62b;</span>
-                </div>
-              </div>
-            </li>
+                  <div class="item-info">
+                    <div class="left">
+                      <div class="item-info-title">{{item.title}}</div>
+                      <div class="item-info-desc">
+                        <span class="item-desc-left">{{item.descLeft}}</span>
+                        <span class="item-desc-right">{{item.descRight}}</span>
+                      </div>
+                    </div>
+                    <div class="item-player border">
+                      <span class="iconfont">&#xe62b;</span>
+                    </div>
+                  </div>
+                </li>
+             </swiper-slide>
+          </swiper>
         </ul>
     </div>
 </template>
@@ -33,6 +37,26 @@ export default {
   name: 'HomeNewSong',
   props: {
     list: Array
+  },
+  data () {
+    return {
+      swiperOptions: {
+        autoplay: false
+      }
+    }
+  },
+  computed: {
+    pages () {
+      const pages = []
+      this.list.forEach((item, index) => {
+        const page = Math.floor(index / 3)
+        if (!pages[page]) {
+          pages[page] = []
+        }
+        pages[page].push(item)
+      })
+      return pages
+    }
   }
 }
 </script>
