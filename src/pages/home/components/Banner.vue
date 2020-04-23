@@ -44,6 +44,7 @@ export default {
     background: #eeeeee
     border-radius: .1rem
     margin: .2rem auto
+    margin-top: 1rem
     .wrapper-img
       width: 100%
 

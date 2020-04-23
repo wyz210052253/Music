@@ -6,27 +6,49 @@
                 查看更多
             </div>
         </div>
-        <div class="wrapper">
-            <div class="content" v-for="item of list" :key='item.id'>
-                <div class="content-img">
-                    <img class="item-img" :src="item.imgUrl">
-                    <div class="item-img-play">
-                        <span class="iconfont">&#xe769;</span>{{item.play}}
-                    </div>
+        <div class="wrapper" ref="wrapper">
+            <div ref="list">
+                <div class="content" v-for="item of list" :key='item.id'>
+                  <div class="content-img">
+                      <img class="item-img" :src="item.imgUrl">
+                      <div class="item-img-play">
+                          <span class="iconfont">&#xe769;</span>{{item.play}}
+                      </div>
+                  </div>
+                  <p class="content-desc">
+                      {{item.desc}}
+                  </p>
                 </div>
-                <p class="content-desc">
-                    {{item.desc}}
-                </p>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 export default {
   name: 'HomeRecommend',
   props: {
     list: Array
+  },
+  mounted () {
+    this.$nextTick(() => {
+      let width = 6 * 120
+      this.$refs.list.style.width = width + 'px'
+      this.$nextTick(() => {
+        if (!this.scroll) {
+          this.scroll = new BScroll(this.$refs.wrapper, {
+            startX: 0,
+            click: true,
+            scrollX: true,
+            scrollY: false,
+            eventPassthrough: 'vertical'
+          })
+        } else {
+          this.scroll.refresh()
+        }
+      })
+    })
   }
 }
 </script>
@@ -63,7 +85,7 @@ export default {
       height: 3.21rem
       width: 100%
       .content
-        width: 25%
+        width: 120px
         height: 3.11rem
         overflow: hidden
         margin-top: .1rem

@@ -6,28 +6,50 @@
                 查看更多
             </div>
         </div>
-        <div class="wrapper">
-            <div class="content" v-for="item of list" :key="item.id">
-                <div class="content-img">
-                    <img class="item-img" :src="item.imgUrl">
-                    <div class="item-img-play">
-                        <span class="iconfont player">&#xe62b;</span>
-                    </div>
-                </div>
-                <div class="content-info">
-                    <div class="info-title">{{item.title}}</div>
-                    <div class="info-desc">{{item.desc}}</div>
-                </div>
+        <div class="wrapper" ref="wrapper">
+            <div ref="list">
+                <div class="content" v-for="item of list" :key="item.id">
+                  <div class="content-img">
+                      <img class="item-img" :src="item.imgUrl">
+                      <div class="item-img-play">
+                          <span class="iconfont player">&#xe62b;</span>
+                      </div>
+                  </div>
+                  <div class="content-info">
+                      <div class="info-title">{{item.title}}</div>
+                      <div class="info-desc">{{item.desc}}</div>
+                  </div>
+               </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 export default {
   name: 'HomeBroadcast',
   props: {
     list: Array
+  },
+  mounted () {
+    this.$nextTick(() => {
+      let width = 6 * 120
+      this.$refs.list.style.width = width + 'px'
+      this.$nextTick(() => {
+        if (!this.scroll) {
+          this.scroll = new BScroll(this.$refs.wrapper, {
+            startX: 0,
+            click: true,
+            scrollX: true,
+            scrollY: false,
+            eventPassthrough: 'vertical'
+          })
+        } else {
+          this.scroll.refresh()
+        }
+      })
+    })
   }
 }
 </script>
@@ -66,7 +88,7 @@ export default {
       margin: 0 auto
       overflow: hidden
       .content
-        width: 28%
+        width: 100px
         height: 3.11rem
         margin-top: .1rem
         margin-right: .3rem

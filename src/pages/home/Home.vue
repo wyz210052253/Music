@@ -1,6 +1,6 @@
 <template>
     <div>
-        <home-header></home-header>
+        <home-header class="header"></home-header>
         <home-banner :list="bannerList"></home-banner>
         <home-icons></home-icons>
         <home-recommend :list="recommendList"></home-recommend>
@@ -77,5 +77,10 @@ export default {
 </script>
 
 <style lang='stylus' scoped>
-
+  .header
+    position: fixed
+    top: 0
+    z-index: 10
+    width: 100%
+    background: #fff
 </style>

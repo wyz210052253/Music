@@ -28,7 +28,6 @@ export default {
     color: #333
     height: .8rem
     line-height: .8rem
-    background: #fff
     display: flex
     .header-left
       width: .64rem

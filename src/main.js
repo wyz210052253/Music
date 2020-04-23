@@ -5,13 +5,11 @@ import App from './App'
 import router from './router'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import fastClick from 'fastclick'
-import 'default-passive-events'
 import './assets/stylus/reset.css'
 import './assets/stylus/border.css'
 import './assets/stylus/iconfont.css'
 import 'swiper/css/swiper.css'
 
-Vue.config.productionTip = false
 fastClick.attach(document.body)
 Vue.use(VueAwesomeSwiper)
 /* eslint-disable no-new */
