@@ -64,6 +64,7 @@ export default {
     height: 0
     padding-bottom: 49%
     background: #fff
+    margin-bottom: 1rem
     .title
       width: 100%
       height: .6rem

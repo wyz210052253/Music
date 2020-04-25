@@ -8,10 +8,10 @@
       </div>
       <div class="item">
         <swiper :options="swiperOptions">
-           <swiper-slide v-for="(page, index) of pages" :key="index">
-              <div class="item-title">硬地原创音乐榜 ></div>
+           <swiper-slide v-for="page of list" :key="page.id" :style="page.style">
+              <div class="item-title">{{page.header}} ></div>
               <ul class="item-list">
-                <li class="item-list-box" v-for="item of page" :key="item.id">
+                <li class="item-list-box" v-for="item of page.list" :key="item.id">
                   <div class="item-wrapper">
                       <img class="item-img" :src="item.imgUrl" />
                   </div>
@@ -40,19 +40,6 @@ export default {
       swiperOptions: {
         autoplay: false
       }
-    }
-  },
-  computed: {
-    pages () {
-      const pages = []
-      this.list.forEach((item, index) => {
-        const page = Math.floor(index / 3)
-        if (!pages[page]) {
-          pages[page] = []
-        }
-        pages[page].push(item)
-      })
-      return pages
     }
   }
 }
@@ -90,10 +77,9 @@ export default {
         .player
           color: black
     .item
-      width: 96%
+      width: 100%
       height: 5.48rem
       margin-top: 0.04rem
-      background: rgb(0,142,84)
       margin: 0 auto
       border-radius: .2rem
       .item-title
@@ -116,8 +102,6 @@ export default {
             width: 1.3rem
             height: 1.3rem
             overflow: hidden
-            margin-left: .2rem
-            border-radius: .2rem
             float: left
             .item-img
               width: 100%

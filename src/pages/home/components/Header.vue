@@ -12,7 +12,7 @@
         </ul>
       </div>
       <div class="header-right">
-        <span class="iconfont iconfont-search">&#xe612;</span>
+        <router-link to="/search"><span class="iconfont iconfont-search">&#xe612;</span></router-link>
       </div>
     </div>
 </template>
@@ -49,4 +49,5 @@ export default {
       margin-right: .2rem
       .iconfont-search
         font-size: .48rem
+        color: #000
 </style>
