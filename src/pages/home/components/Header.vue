@@ -5,10 +5,10 @@
       </div>
       <div class="header-middle">
         <ul>
-          <router-link is="li" to="/" class="header-middle-title">我的</router-link>
-          <router-link is="li" to="/" class="header-middle-title">发现</router-link>
-          <router-link is="li" to="/" class="header-middle-title">云村</router-link>
-          <router-link is="li" to="/" class="header-middle-title">视频</router-link>
+          <router-link  to="/" class="header-middle-title">我的</router-link>
+          <router-link  to="/" class="header-middle-title">发现</router-link>
+          <router-link  to="/" class="header-middle-title">云村</router-link>
+          <router-link  to="/" class="header-middle-title">视频</router-link>
         </ul>
       </div>
       <div class="header-right">
@@ -43,6 +43,7 @@ export default {
       .header-middle-title
         float: left
         margin: 0 .3rem
+        color: #000
     .header-right
       width: .64rem
       text-align: center

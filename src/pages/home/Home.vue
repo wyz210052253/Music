@@ -10,7 +10,9 @@
         <home-player :list="playerList"></home-player>
         <home-ranking :list="rankingList"></home-ranking>
         <home-broadcast :list="broadcastList"></home-broadcast>
-        <home-play class="footer"></home-play>
+        <router-link to="/player">
+          <home-play class="footer"></home-play>
+        </router-link>
     </div>
 </template>
 
@@ -92,4 +94,5 @@ export default {
     width: 100%
     background: #fff
     z-index: 10
+    color: #000
 </style>
